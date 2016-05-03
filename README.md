@@ -31,6 +31,14 @@ Parameters MUST be provided either in a query string (for GET requests), or in
 the `application/x-www-form-urlencoded` format (for POST requests).
 
 
+### Default (no parameters)
+
+By default (when no parameters are supplied), the server is REQUIRED to return
+**all** course identifiers (including the ones conducted in ancient history).
+Parameters described below are used to **filter** this huge default data set.
+Clients SHOULD use these parameters in order to make the responses smaller.
+
+
 ### `hei_id` (required)
 
 ID of the institution in which the courses are conducted. This parameter is
