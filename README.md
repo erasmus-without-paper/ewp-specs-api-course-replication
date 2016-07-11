@@ -27,22 +27,23 @@ Request method
 Request parameters
 ------------------
 
-Parameters MUST be provided either in a query string (for GET requests), or in
-the `application/x-www-form-urlencoded` format (for POST requests).
-
-
-### Default (no parameters)
-
-By default (when no parameters are supplied), the server is REQUIRED to return
-**all** course identifiers (including the ones conducted in ancient history).
-Parameters described below are used to **filter** this huge default data set.
-Clients SHOULD use these parameters in order to make the responses smaller.
+Parameters MUST be provided in the regular `application/x-www-form-urlencoded`
+format.
 
 
 ### `hei_id` (required)
 
-ID of the institution in which the courses are conducted. This parameter is
-required even if the host covers only a single institution.
+ID of the institution in which the courses are conducted. This parameter MUST
+be required by the server even if it covers only a single institution.
+
+
+### `limit` (optional)
+
+Positive integer of `none`. Default is **20**.
+
+If `none` is given, the server is REQUIRED to return **all** matching
+identifiers. This list can be huge, but it will allow the clients to fetch the
+complete list of course identifiers (to facilitate full replication).
 
 
 ### (more parameters to come)
@@ -53,27 +54,27 @@ More parameters will be added here after the model is specified.
 Permissions
 -----------
 
- * All requests from the EWP Network MUST be allowed access to this API.
+ * All requests from the EWP Network MUST be allowed to access this API.
 
- * Additionally, it is RECOMMENDED to allow this API to be accessed by
-   **anonymous** external clients too (without the need of using a client
-   certificate). It is also RECOMMENDED that servers should include an
-   `Access-Control-Allow-Origin: *` header in their responses (so that
-   JavaScript applications will be able to use it without a proxy).
+ * Additionally, implementers MAY allow this API to be accessed by
+   **anonymous** external clients too (without the need of using any client
+   certificate).
 
 
 Handling of invalid parameters
 ------------------------------
 
  * General [error handling rules][error-handling] apply.
- * Invalid (or unknown) `hei_id` MUST result in a HTTP 400 error response.
+ * Invalid (or unknown) `hei_id` values MUST result in a HTTP 400 error
+   response.
 
 
 Response
 --------
 
-Servers MUST respond with a valid XML document described by the [response.xsd]
-(response.xsd) schema. See the schema annotations for further information.
+If the request was valid, then servers MUST respond with a valid XML document
+described by the [response.xsd](response.xsd) schema. See the schema
+annotations for further information.
 
 
 [develhub]: http://developers.erasmuswithoutpaper.eu/
