@@ -5,12 +5,13 @@
     Wojtek's comment: 
     https://github.com/erasmus-without-paper/ewp-specs-api-course-search/issues/3
     -->
+    <!--
+    Kais comment: I see. Something like this? (Naming of ID is discusses elsewhere)
+    -->
     <learning-opportunity-specification-ref>
-        <title lang="en">Introductory calculus</title>
-        <subject-area-code>11.1</subject-area-code>
+        <los-code>MA100</los-code>
     </learning-opportunity-specification-ref>
     <learning-opportunity-specification-ref>
-        <title lang="en">Political science, main subject</title>
-        <subject-area-code>14.1</subject-area-code>
+        <los-code>STAVH</los-code>
     </learning-opportunity-specification-ref>
 </response>
