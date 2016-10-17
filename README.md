@@ -14,10 +14,11 @@ Once implemented, it allows the clients to replicate its catalogue of courses
 conducted on this HEI. This in turn allows the clients to build rich course
 searching experience.
 
-In the draft stages of the design process, this API was referred to as "Course
-Search API". However, as the result of [this issue]
+In the draft stages of the design process, this API was referred to as **Course
+Search API**. However, as the result of [this issue]
 (https://github.com/erasmus-without-paper/ewp-specs-api-course-replication/issues/3),
-we have dropped the name along with some of its initially planned functionality.
+we have dropped this name along with some of its initially planned filtering
+functionality.
 
 
 Request method
@@ -40,15 +41,19 @@ format.
 ### `hei_id` (required)
 
 ID of the institution in which the courses are conducted. This parameter MUST
-be required by the server even if it covers only a single institution.
+be validated by the server even if the server covers only a single HEI.
 
 
 ### `modified_since` (optional)
 
-A date in the ISO 8601 format, e.g. `2004-02-12T15:19:21+00:00`.
+A date in the ISO 8601 format, e.g. `2004-02-12T15:19:21+01:00`.
 
-If given, then the server SHOULD filter the returned Course IDs to the ones
-which have been modified since the provided point in time.
+If not given, then servers MUST return a full list of all their Course IDs.
+This includes courses not currently conducted (if the server keeps record of
+such courses).
+
+If `modified_since` is given, then the server SHOULD filter the returned Course
+IDs to the ones which have been *modified* since the provided point in time.
 
  * Servers MAY include courses which were *not* modified. For example, if the
    server only *suspects* that the course was modified, then it is okay to
@@ -60,11 +65,13 @@ which have been modified since the provided point in time.
    include all the courses for every request.
 
  * Servers MAY cache the response, but if they do, then they MUST do it in a
-   way which will allow the clients to receive all the changes transparently
-   (though with a delay). For example, if you want to cache the response for 24
-   hours, then such cached response MUST also include all courses modified
-   since 24 hours *before* the moment such response was generated. Otherwise,
-   the clients would be missing some changes.
+   way which will allows the clients to receive all the changes in a standard,
+   predictable way (though with a delay).
+
+   For example, if you want to cache the response for 24 hours, then such
+   cached response MUST also include all courses modified since 24 hours
+   *before* the moment such response was generated. Otherwise, the clients
+   would be missing some changes.
 
 
 Permissions
