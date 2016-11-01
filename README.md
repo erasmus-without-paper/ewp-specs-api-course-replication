@@ -106,7 +106,6 @@ Data model entities involved in the response
 
  * Learning Opportunity Specification?
  * Learning Opportunity Instance
- * Academic Year?
  * Academic Term
 
 
