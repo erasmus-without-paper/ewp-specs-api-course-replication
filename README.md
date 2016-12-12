@@ -10,15 +10,19 @@ Summary
 
 This document describes the **Simple Course Replication API**. This API can be
 implemented by any HEI, even it is does not take part in EWP mobility process.
-Once implemented, it allows the clients to replicate its catalogue of courses
-conducted on this HEI. This in turn allows the clients to build rich course
-searching experience.
+Once implemented, it allows the clients to replicate the catalogue of courses
+conducted on this HEI. This in turn allows the clients to design rich course
+searching user experience.
 
-In the draft stages of the design process, this API was referred to as **Course
-Search API**. However, as the result of [this issue]
+In the draft stages of the design process, this API was referred to as "Course
+Search API". However, as the result of [this issue]
 (https://github.com/erasmus-without-paper/ewp-specs-api-course-replication/issues/3),
-we have dropped this name along with some of its initially planned filtering
+we have dropped this name along with some of its initially planned *filtering*
 functionality.
+
+As it has been explained in the [Courses API][courses-api], `Course` is just
+one of the types of **learning opportunity**. This API MAY expose all types of
+learning opportunities, not only courses. See Courses API for details.
 
 
 Request method
@@ -46,14 +50,14 @@ be validated by the server even if the server covers only a single HEI.
 
 ### `modified_since` (optional)
 
-A date in the ISO 8601 format, e.g. `2004-02-12T15:19:21+01:00`.
+A datetime string in the ISO 8601 format, e.g. `2004-02-12T15:19:21+01:00`.
 
-If not given, then servers MUST return a full list of all their Course IDs.
+If not given, then servers MUST return a full list of all their LOS IDs.
 This includes courses not currently conducted (if the server keeps record of
 such courses).
 
-If `modified_since` is given, then the server SHOULD filter the returned Course
-IDs to the ones which have been *modified* since the provided point in time.
+If `modified_since` is given, then the server SHOULD filter the returned LOS
+IDs to the ones which have been *modified* after the given point in time.
 
  * Servers MAY include courses which were *not* modified. For example, if the
    server only *suspects* that the course was modified, then it is okay to
@@ -61,12 +65,13 @@ IDs to the ones which have been *modified* since the provided point in time.
 
  * Servers MAY ignore the `modified_since` parameter completely, and *always*
    respond with the full list of course IDs. If, for some reason, the server
-   cannot reliably identify when courses are updated, then it's better to
-   include all the courses for every request.
+   cannot reliably identify when courses are updated, then it's even *better*
+   to do so.
 
- * Servers MAY cache the response, but if they do, then they MUST do it in a
-   way which will allows the clients to receive all the changes in a standard,
-   predictable way (though with a delay).
+ * Servers MAY cache the response (so that it will be generated faster for the
+   next client), but if they do, then they MUST do it in a way which will
+   allow the clients to receive all the changes in a standard, predictable way
+   (though with a delay).
 
    For example, if you want to cache the response for 24 hours, then such
    cached response MUST also include all courses modified since 24 hours
@@ -82,7 +87,7 @@ Permissions
  * Additionally, implementers MAY allow this API to be accessed by
    **anonymous** external clients too (without the need of using any client
    certificate). Servers MAY send a filtered response to such clients (for
-   example, with email addresses removed).
+   example, with parts of data removed).
 
 
 Handling of invalid parameters
@@ -105,8 +110,6 @@ Data model entities involved in the response
 --------------------------------------------
 
  * Learning Opportunity Specification
- * Learning Opportunity Instance
- * Academic Term
 
 
 [develhub]: http://developers.erasmuswithoutpaper.eu/
@@ -116,3 +119,4 @@ Data model entities involved in the response
 [echo]: https://github.com/erasmus-without-paper/ewp-specs-api-echo
 [error-handling]: https://github.com/erasmus-without-paper/ewp-specs-architecture#error-handling
 [institutions-api]: https://github.com/erasmus-without-paper/ewp-specs-api-institutions
+[courses-api]: https://github.com/erasmus-without-paper/ewp-specs-api-courses
