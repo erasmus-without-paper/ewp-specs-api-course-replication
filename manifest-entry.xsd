@@ -53,6 +53,13 @@
                                 </xs:documentation>
                             </xs:annotation>
                         </xs:element>
+                        <xs:element name="supports-modified-since" type="xs:boolean">
+                            <xs:annotation>
+                                <xs:documentation>
+                                    Boolean. True, if the server supports `modified_since` request parameter.
+                                </xs:documentation>
+                            </xs:annotation>
+                        </xs:element>
                     </xs:sequence>
                 </xs:extension>
             </xs:complexContent>
