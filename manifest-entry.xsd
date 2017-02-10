@@ -37,14 +37,14 @@
             <xs:complexContent>
                 <xs:extension base="ewp:ManifestApiEntryBase">
                     <xs:sequence>
-                        <xs:element name="url" type="ewp:HTTPS">
+                        <xs:element name="url" type="ewp:HTTPS" minOccurs="1" maxOccurs="1">
                             <xs:annotation>
                                 <xs:documentation>
                                     An URL at which the Simple Course Replication API is being served.
                                 </xs:documentation>
                             </xs:annotation>
                         </xs:element>
-                        <xs:element name="allows-anonymous-access" type="xs:boolean">
+                        <xs:element name="allows-anonymous-access" type="xs:boolean" minOccurs="1" maxOccurs="1">
                             <xs:annotation>
                                 <xs:documentation>
                                     Boolean. If true, then this API is accessible to anonymous clients. This means
@@ -53,7 +53,7 @@
                                 </xs:documentation>
                             </xs:annotation>
                         </xs:element>
-                        <xs:element name="supports-modified-since" type="xs:boolean">
+                        <xs:element name="supports-modified-since" type="xs:boolean" minOccurs="1" maxOccurs="1">
                             <xs:annotation>
                                 <xs:documentation>
                                     Boolean. True, if the server supports `modified_since` request parameter.
