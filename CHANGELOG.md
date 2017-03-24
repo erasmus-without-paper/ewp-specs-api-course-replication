@@ -8,15 +8,15 @@ document, starting from its first beta draft version.
 1.0.0-rc5
 ---------
 
-* `minOccurs` and `maxOccurs` are now provided explicitly ([why?]
-  (https://github.com/erasmus-without-paper/general-issues/issues/22)).
+* `minOccurs` and `maxOccurs` are now provided explicitly
+  ([why?](https://github.com/erasmus-without-paper/general-issues/issues/22)).
 
 
 1.0.0-rc4
 ---------
 
-* Response example has been adjusted so that LOS IDs are now in a [new format]
-  (https://github.com/erasmus-without-paper/ewp-specs-api-mobilities/issues/9).
+* Response example has been adjusted so that LOS IDs are now in a
+  [new format](https://github.com/erasmus-without-paper/ewp-specs-api-mobilities/issues/9).
   The XSD also refers to this format (so it is now properly validated).
 
 * Some changes to the API's manifest entry: New `<supports-modified-since>`

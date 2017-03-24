@@ -15,8 +15,8 @@ conducted on this HEI. This in turn allows the clients to design rich course
 searching user experience.
 
 In the draft stages of the design process, this API was referred to as "Course
-Search API". However, as the result of [this issue]
-(https://github.com/erasmus-without-paper/ewp-specs-api-course-replication/issues/3),
+Search API". However, as the result of
+[this issue](https://github.com/erasmus-without-paper/ewp-specs-api-course-replication/issues/3),
 we have dropped this name along with some of its initially planned *filtering*
 functionality.
 
