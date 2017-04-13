@@ -106,6 +106,26 @@ described by the [response.xsd](response.xsd) schema. See the schema
 annotations for further information.
 
 
+Performance note
+----------------
+
+It's worth noting that, depending on EWP's popularity and the number of LOS
+objects in your system, implementing this particular API MAY introduce a
+significant load on your servers (primarily via the Courses API, not this one),
+especially if you decide to make them available anonymously.
+
+Once you implement this API, you effectively allow your requesters to download
+the entire listing of your courses, and keep it synchronized later on. This of
+will be profitable for your HEIs, because their course catalogue will be easier
+found in external systems. However, you should keep in mind, that this
+functionality is *not* essential for EWP's mobility workflow, and you may skip
+it if you're afraid of performance issues. That's just a little extra
+functionality you might want to implement, but are not required to.
+
+To avoid potential problems with performance, proper caching is recommended -
+not only for this API, but also for your LOS XML representations.
+
+
 Data model entities involved in the response
 --------------------------------------------
 
