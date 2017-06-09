@@ -25,6 +25,31 @@ one of the types of **learning opportunity**. This API MAY expose all types of
 learning opportunities, not only courses. See Courses API for details.
 
 
+Performance note
+----------------
+
+Once you implement this API, you effectively allow your requesters to download
+the entire listing of your programmes and courses, and keep it synchronized
+later on. This is probably a good idea from a business viewpoint (because your
+HEIs' course catalogues will be easier discovered in external systems), but
+it's necessarily so good an idea *for your servers*.
+
+Depending on EWP's popularity and the number of LOS objects in your system,
+implementing this particular API MAY introduce a significant load on your
+servers - primarily via the Courses API, not this one (especially if you decide
+to make these two APIs available anonymously).
+
+Therefore:
+
+ * To avoid potential problems with performance, proper caching is recommended
+   (not only in *this* API, but - primarily - in the Courses API).
+ 
+ * Keep in mind, that this functionality is *not* essential for EWP's mobility
+   workflow, and you are free to "skip" this API if you're afraid of
+   performance issues. It is also perfectly okay to first make it available,
+   and then **change your mind later** (if it proves troublesome).
+
+
 Request method
 --------------
 
@@ -104,26 +129,6 @@ Response
 If the request was valid, then servers MUST respond with a valid XML document
 described by the [response.xsd](response.xsd) schema. See the schema
 annotations for further information.
-
-
-Performance note
-----------------
-
-It's worth noting that, depending on EWP's popularity and the number of LOS
-objects in your system, implementing this particular API MAY introduce a
-significant load on your servers (primarily via the Courses API, not this one),
-especially if you decide to make them available anonymously.
-
-Once you implement this API, you effectively allow your requesters to download
-the entire listing of your courses, and keep it synchronized later on. This of
-will be profitable for your HEIs, because their course catalogue will be easier
-found in external systems. However, you should keep in mind, that this
-functionality is *not* essential for EWP's mobility workflow, and you may skip
-it if you're afraid of performance issues. That's just a little extra
-functionality you might want to implement, but are not required to.
-
-To avoid potential problems with performance, proper caching is recommended -
-not only for this API, but also for your LOS XML representations.
 
 
 Data model entities involved in the response
