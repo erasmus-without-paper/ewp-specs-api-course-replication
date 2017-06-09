@@ -43,7 +43,7 @@ Therefore:
 
  * To avoid potential problems with performance, proper caching is recommended
    (not only in *this* API, but - primarily - in the Courses API).
- 
+
  * Keep in mind, that this functionality is *not* essential for EWP's mobility
    workflow, and you are free to "skip" this API if you're afraid of
    performance issues. It is also perfectly okay to first make it available,
