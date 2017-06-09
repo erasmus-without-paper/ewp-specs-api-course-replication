@@ -5,6 +5,14 @@ This document describes all the changes made to the *Institutions API*
 document, starting from its first beta draft version.
 
 
+1.0.0-rc6
+---------
+
+* Added the *Performance note* section.
+* Updated XML namespace references (see
+  [this issue](https://github.com/erasmus-without-paper/ewp-specs-api-iias/issues/22)).
+
+
 1.0.0-rc5
 ---------
 
