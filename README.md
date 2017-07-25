@@ -104,15 +104,18 @@ IDs to the ones which have been *modified* after the given point in time.
    would be missing some changes.
 
 
-Permissions
------------
+Security
+--------
 
- * All requests from the EWP Network MUST be allowed to access this API.
+This version of this API uses [standard EWP Authentication and Security,
+Version 1][sec-v1].
 
- * Additionally, implementers MAY allow this API to be accessed by
-   **anonymous** external clients too (without the need of using any client
-   certificate). Servers MAY send a filtered response to such clients (for
-   example, with parts of data removed).
+Additionally, implementers MAY allow this API to be accessed by **anonymous**
+external clients (without the need of using any client certificate). Servers
+MAY send a filtered response to such clients (for example, with parts of data
+removed). Servers MUST declare support for such anonymous requests by including
+a special element in their manifest - see [`manifest-entry.xsd`](manifest-entry.xsd)
+for details.
 
 
 Handling of invalid parameters
@@ -145,3 +148,4 @@ Data model entities involved in the response
 [error-handling]: https://github.com/erasmus-without-paper/ewp-specs-architecture#error-handling
 [institutions-api]: https://github.com/erasmus-without-paper/ewp-specs-api-institutions
 [courses-api]: https://github.com/erasmus-without-paper/ewp-specs-api-courses
+[sec-v1]: https://github.com/erasmus-without-paper/ewp-specs-sec-intro/tree/stable-v1
