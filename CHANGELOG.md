@@ -5,6 +5,18 @@ This document describes all the changes made to the *Institutions API*
 document, starting from its first beta draft version.
 
 
+1.0.0-rc7
+---------
+
+* Fix schemaLocations.
+
+* Explicitly declare that this version still requires the use of
+  [Version 1](https://github.com/erasmus-without-paper/ewp-specs-sec-intro/tree/stable-v1)
+  of the *Authentication and Security* document. You can find more information
+  on the planned process of updating security requirements
+  [here](https://github.com/erasmus-without-paper/ewp-specs-sec-intro/issues/1).
+
+
 1.0.0-rc6
 ---------
 
