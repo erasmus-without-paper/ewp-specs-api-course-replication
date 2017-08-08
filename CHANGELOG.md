@@ -5,12 +5,30 @@ This document describes all the changes made to the *Institutions API*
 document, starting from its first beta draft version.
 
 
+1.0.0-rc8
+---------
+
+ * This API now requires implementers to upgrade their implementations to
+   [Version 2](https://github.com/erasmus-without-paper/ewp-specs-sec-intro/tree/stable-v2)
+   of the *Authentication and Security* document.
+
+   In particular, this means that the clients MUST be aware of the fact, that
+   the server is no longer required to support methods of authentication and
+   encryption which it *was* required to support in the previous versions of
+   this API. Clients SHOULD consult the newly introduced `<http-security>`
+   element in the server's manifest entry before making their requests.
+
+ * The `<allows-anonymous-access>` element (in `manifest-entry.xsd`) is now
+   DEPRECATED. This element in planned to be removed before the final version
+   of this API is released. Please use `<http-security>` element instead.
+
+
 1.0.0-rc7
 ---------
 
 * Fix schemaLocations.
 
-* Explicitly declare that this version still requires the use of
+* Explicitly declared that this version still requires the use of
   [Version 1](https://github.com/erasmus-without-paper/ewp-specs-sec-intro/tree/stable-v1)
   of the *Authentication and Security* document. You can find more information
   on the planned process of updating security requirements
