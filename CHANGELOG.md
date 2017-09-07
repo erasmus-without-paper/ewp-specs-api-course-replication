@@ -54,7 +54,7 @@ document, starting from its first beta draft version.
 ---------
 
 * Response example has been adjusted so that LOS IDs are now in a
-  [new format](https://github.com/erasmus-without-paper/ewp-specs-api-mobilities/issues/9).
+  [new format](https://github.com/erasmus-without-paper/ewp-specs-api-omobilities/issues/9).
   The XSD also refers to this format (so it is now properly validated).
 
 * Some changes to the API's manifest entry: New `<supports-modified-since>`
