@@ -75,7 +75,8 @@ be validated by the server even if the server covers only a single HEI.
 
 ### `modified_since` (optional)
 
-A datetime string in the ISO 8601 format, e.g. `2004-02-12T15:19:21+01:00`.
+A datetime string in the [`xs:dateTime` format][xs-datetime], e.g.
+`2004-02-12T15:19:21+01:00`.
 
 If not given, then servers MUST return a full list of all their LOS IDs.
 This includes courses not currently conducted (if the server keeps record of
@@ -150,3 +151,4 @@ Data model entities involved in the response
 [institutions-api]: https://github.com/erasmus-without-paper/ewp-specs-api-institutions
 [courses-api]: https://github.com/erasmus-without-paper/ewp-specs-api-courses
 [sec-v2]: https://github.com/erasmus-without-paper/ewp-specs-sec-intro/tree/stable-v2
+[xs-datetime]: https://www.w3.org/TR/xmlschema11-2/#dateTime
