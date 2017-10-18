@@ -5,6 +5,14 @@ This document describes all the changes made to the *Institutions API*
 document, starting from its first beta draft version.
 
 
+1.0.0-rc9
+---------
+
+* The `modified_since` parameter of the `index` endpoint is now in the
+  `xs:dateTime` format (not ISO 8601 format). See
+  [this thread](https://github.com/erasmus-without-paper/general-issues/issues/27).
+
+
 1.0.0-rc8
 ---------
 
